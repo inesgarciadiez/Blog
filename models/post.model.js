@@ -1,5 +1,5 @@
 const getAll = () => {
-    return db.query('select * from posts');
+    return db.query('SELECT * FROM posts JOIN autores ON posts.AUTOR_id=autores.id');
 }
 
 const getById = (AUTOR_id) => {

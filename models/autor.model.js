@@ -13,13 +13,6 @@ const create = ({nombre, email, imagen}) => {
     );
 }
 
-const update = (autorId, { nombre, email, imagen}) => {
-    return db.query(
-        'update autores set nombre = ?, email = ?, imagen = ? where id = ?',
-        [nombre, email, imagen, autorId]
-    );
-}
-
 module.exports = {
-    getAll, getById, create, update
+    getAll, getById, create
 }

@@ -1,12 +1,13 @@
-const { getByAutorId } = require('../../models/post.model');
-const { getAll, create, getById } = require('../../models/post.model');
+const {  } = require('../../models/autor.model');
+const { getAll, create, getByAutorId} = require('../../models/post.model');
 
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
     try {
-        const [posts] = await getAll();
-        res.json(posts);
+        const [autores] = await getAll();
+
+        res.json(autores);
     }
     catch (error) {
         res.status(500).json({ fatal: error.message });
@@ -29,19 +30,6 @@ router.get('/:postId', async (req, res) => {
     }
 });
 
-// GET /api/clients/IDAUTOR
-router.get('/:autorId', async (req, res) => {
-    try {
-        const [autores] = await getAll();
-        for (let autor of autores) {
-            const [posts] = await getByAutorId(autor.id);
-            autor.posts = posts;
-        }
-        res.json(autores);
-    } catch (error) {
-
-    }
-});
 router.post('/', async (req, res) => {
     const [result] = await create(req.body);
 });

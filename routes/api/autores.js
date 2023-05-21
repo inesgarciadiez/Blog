@@ -1,4 +1,4 @@
-const { getByAutorId } = require('../../models/post.model');
+const { getById } = require('../../models/autor.model');
 const { getAll, create } = require('../../models/autor.model');
 
 const router = require('express').Router();
@@ -14,19 +14,21 @@ router.get('/', async (req, res) => {
     }
 });
 
-/* // GET /api/clients/IDAUTOR
-router.get('/:autorId', async (req, res) => {
-    try {
-        const [autores] = await getAll();
-        for (let autor of autores) {
-            const [posts] = await getByAutorId(autor.id);
-            autor.posts = posts;
-        }
-        res.json(autores);
-    } catch (error) {
+// GET /api/clients/IDAUTOR
+router.get('/:postId', async (req, res) => {
+    const { postId } = req.params;
 
+    try {
+        const [result] = await getById(postId);
+        if (result.length === 0) {
+            return res.json({ fatal: 'No existe un post con ese AUTOR_id' });
+        }
+        res.json(result);
     }
-}); */
+    catch (error) {
+        res.json({ fatal: error.message });
+    }
+});
 
 // POST
 router.post('/', async (req, res) => {
