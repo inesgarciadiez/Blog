@@ -1,0 +1,34 @@
+@host = http://localhost:3000
+
+######################################## API AUTORES ########################################
+
+GET {{host}}/api/autores
+
+###
+POST {{host}}/api/autores
+Content-Type: application/json
+
+{
+    "nombre": "Isaac",
+    "email": "isaac@gmail.com",
+    "imagen": "https://es.babelio.com/users/AVT_Neil-Gaiman_6684.jpg"
+}
+
+######################################## API POSTS  #########################################
+GET {{host}}/api/posts
+
+###
+GET {{host}}/api/posts/6
+
+###
+POST {{host}}/api/posts
+Content-Type: application/json
+
+{
+    "titulo": "Perico los palotes",
+    "descripcion": "Basado en hechos reales",
+    "fecha_creacion": "20230511",
+    "categoria": "Comedia",
+    "AUTOR_id": 4
+}
+
