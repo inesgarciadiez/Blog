@@ -32,6 +32,6 @@ Content-Type: application/json
     "descripcion": "Basado en hechos reales",
     "fecha_creacion": "20230511",
     "categoria": "Comedia",
-    "AUTOR_id": 4
+    "AUTOR_id": 8
 }
 
